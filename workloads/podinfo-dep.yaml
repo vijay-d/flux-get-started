@@ -38,7 +38,7 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
-          containerPort: 9895
+          containerPort: 9898
           protocol: TCP
         - name: http-metrics
           containerPort: 9797
@@ -48,7 +48,7 @@ spec:
           protocol: TCP
         command:
         - ./podinfo
-        - --port=9895
+        - --port=9898
         - --port-metrics=9797
         - --grpc-port=9999
         - --grpc-service-name=podinfo
@@ -62,11 +62,11 @@ spec:
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 9895
+            port: 9898
         readinessProbe:
           httpGet:
             path: /readyz
-            port: 9895
+            port: 9898
         resources:
           limits:
             cpu: 1000m
